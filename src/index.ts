@@ -56,7 +56,7 @@ const getCollection = async (
 (async () => {
   const collections = ["plan-line", "dependency-edge"];
 
-  for (const compress of [false]) {
+  for (const compress of [false, true]) {
     const plansDownloadStartTime = Date.now();
     const limit = compress ? 20000 : 10000;
     let offset = 0;
