@@ -1,0 +1,16 @@
+{
+  "name": "xpna-api-fetch",
+  "packageManager": "yarn@4.0.2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node --env-file=.env dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "typescript": "^5.5.2"
+  }
+}
