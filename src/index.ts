@@ -1,12 +1,6 @@
-import crypto from "node:crypto";
-
 const apiUrl = process.env.API_URL;
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const randomSleep = async (min: number, max: number) => {
-  await sleep(crypto.randomInt(min, max));
-};
 
 const getCollection = async (
   collection: string,
@@ -58,7 +52,7 @@ const getCollection = async (
 
   for (const compress of [false, true]) {
     const plansDownloadStartTime = Date.now();
-    const limit = compress ? 20000 : 10000;
+    const limit = compress ? 25000 : 10000;
     let offset = 0;
     for (const collection of collections) {
       const startTime = Date.now();
@@ -78,5 +72,6 @@ const getCollection = async (
         Date.now() - plansDownloadStartTime
       ).toLocaleString()} milliseconds (compress: ${compress})`
     );
+    await sleep(5000);
   }
 })();
